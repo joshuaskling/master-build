@@ -22,6 +22,9 @@ pipeline {
       }
     }
     stage('updateUPDTClearCase') {
+      when{
+        expression {params.runUpdate == true}
+      }
       steps {
         sh '''
           echo "Running updateUPDTClearCase"
@@ -29,6 +32,9 @@ pipeline {
       }
     }
     stage('UPDTcleaner') {
+      when{
+        expression {params.runCleaner == true}
+      }
       steps {
         sh '''
           echo "Running UPDTcleaner"
