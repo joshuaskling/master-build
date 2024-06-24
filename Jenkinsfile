@@ -1,10 +1,10 @@
 pipeline {
   agent any
-  parameters([
+  parameters{[
     string(name: 'createViewBootstrapper', defaultValue: 'true'),
     string(name: 'updateUPDTClearCase', defaultValue: ''),
     string(name: 'UPDTcleaner', defaultValue: 'true')
-  ])
+  ]}
   stages {
     stage('createViewBootstrapper') {
       steps {
