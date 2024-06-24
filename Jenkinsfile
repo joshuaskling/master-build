@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  parameters(string(name: 'submodule', defaultValue: ''))
+  parameters{string(name: 'submodule', defaultValue: '')}
   stages {
     stage('createViewBootstrapper') {
       steps {
