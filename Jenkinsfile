@@ -1,14 +1,12 @@
 pipeline {
   agent any
-  parameters{[
-    string(name: 'createViewBootstrapper', defaultValue: 'true'),
-    string(name: 'updateUPDTClearCase', defaultValue: ''),
-    string(name: 'UPDTcleaner', defaultValue: 'true')
-  ]}
+  parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
   stages {
     stage('createViewBootstrapper') {
       steps {
-        echo "VALUE: ${params.createViewBootstrapper}"
+        echo "VALUE: ${params.Greeting}"
         sh '''
           echo "Running createViewBootstrapper"
         '''
