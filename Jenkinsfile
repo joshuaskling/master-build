@@ -1,14 +1,16 @@
 pipeline {
   agent any
-  parameters ([
-        string(name: 'runCreate', defaultValue: true, description: 'Run createViewBootstrapper'),
-          string(name: 'runCreate1', defaultValue: true, description: 'Run createViewBootstrapper'),
-          string(name: 'runCreate2', defaultValue: true, description: 'Run createViewBootstrapper')
+  properties([
+    parameters([
+      string(name: 'submodule', defaultValue: ''),
+      string(name: 'submodule_branch', defaultValue: ''),
+      string(name: 'commit_sha', defaultValue: ''),
     ])
+  ])
   stages {
     stage('createViewBootstrapper') {
       steps {
-        echo "VALUE: ${params.runCreate}"
+        echo "VALUE: ${params.submodule}"
         sh '''
           echo "Running createViewBootstrapper"
         '''
