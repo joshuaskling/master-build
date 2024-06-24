@@ -1,10 +1,10 @@
 pipeline {
   agent any
-  parameters {[
+  parameters ([
         string(name: 'runCreate', defaultValue: true, description: 'Run createViewBootstrapper'),
           string(name: 'runCreate1', defaultValue: true, description: 'Run createViewBootstrapper'),
           string(name: 'runCreate2', defaultValue: true, description: 'Run createViewBootstrapper')
-    ]}
+    ])
   stages {
     stage('createViewBootstrapper') {
       steps {
