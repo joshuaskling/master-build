@@ -8,6 +8,9 @@ pipeline {
   }
   stages {
     stage('createViewBootstrapper') {
+      when{
+        expression {params.runCreate == true}
+      }
       steps {
         echo "VALUE: ${params.stringInput}"
         echo "VALUE: ${params.runCreate}"
