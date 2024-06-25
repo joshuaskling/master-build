@@ -39,6 +39,7 @@ pipeline {
         sh '''
           echo "Running UPDTcleaner"
         '''
+        UPDTcleaner()
       }
     }
   }
