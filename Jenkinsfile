@@ -19,6 +19,7 @@ pipeline {
         sh '''
           echo "Running createViewBootstrapper"
         '''
+        createViewBootstrapper()
       }
     }
     stage('updateUPDTClearCase') {
@@ -29,6 +30,7 @@ pipeline {
         sh '''
           echo "Running updateUPDTClearCase"
         '''
+        updateUPDTClearCase()
       }
     }
     stage('UPDTcleaner') {
