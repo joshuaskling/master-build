@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    TEST = 'test environment variable'
+  }
   parameters{
     string(name: 'stringInput', defaultValue: 'Hello')
     booleanParam(name: 'runCreate', defaultValue: true)
@@ -16,6 +19,7 @@ pipeline {
         echo "VALUE: ${params.runCreate}"
         echo "VALUE: ${params.runUpdate}"
         echo "VALUE: ${params.runCleaner}"
+        echo "${TEST}"
         sh '''
           echo "Running createViewBootstrapper"
         '''
