@@ -12,7 +12,8 @@ pipeline {
   stages {
     stage('getConfig') {
       steps {
-        sh '''ls -ltr'''
+        def props = readJSON file: 'config.json'
+        echo props.id
       }
     }
     stage('createViewBootstrapper') {
