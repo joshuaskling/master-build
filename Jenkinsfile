@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('getConfig') {
       steps {
-        echo "${props}"
+        echo "${props.deployment}"
       }
     }
     stage('createViewBootstrapper') {
