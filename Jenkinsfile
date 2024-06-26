@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
     TEST = 'test environment variable'
+    props = readJSON file: 'config.json'
   }
   parameters{
     string(name: 'stringInput', defaultValue: 'Hello')
@@ -12,8 +13,7 @@ pipeline {
   stages {
     stage('getConfig') {
       steps {
-        props = readJSON file: 'config.json'
-        echo props.id
+        echo ${"props.id"}
       }
     }
     stage('createViewBootstrapper') {
