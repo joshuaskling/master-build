@@ -3,7 +3,7 @@ pipeline {
   environment {
     TEST = 'test environment variable'
     props = readJSON file: 'config.json'
-    url = "${props.deployment}"
+    url = "${props.deployment.files.example-resource-file1.sourceUrl}"
   }
   parameters{
     string(name: 'stringInput', defaultValue: 'Hello')
@@ -15,9 +15,7 @@ pipeline {
     stage('getConfig') {
       steps {
         echo "=========================================================="
-        echo "${url.files}"
-        echo "=========================================================="
-        echo "${props.deployment}"
+        echo "${url}"
         echo "=========================================================="
       }
     }
