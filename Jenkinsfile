@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('getConfig') {
       steps {
-        readJSON('config.json')
+        readJSON file: 'config.json'
         echo props.id
       }
     }
