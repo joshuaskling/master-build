@@ -14,7 +14,7 @@ pipeline {
     stage('getConfig') {
       steps {
         echo "=========================================================="
-        echo "${props}.deployment.files.example-resource-file1[sourceUrl]"
+        echo "${props}[deployment]"
         echo "=========================================================="
       }
     }
