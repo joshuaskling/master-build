@@ -10,6 +10,11 @@ pipeline {
     booleanParam(name: 'runCleaner', defaultValue: true)
   }
   stages {
+    stage('getConfig') {
+      steps {
+        sh '''ls -ltr'''
+      }
+    }
     stage('createViewBootstrapper') {
       when{
         expression {params.runCreate == true}
