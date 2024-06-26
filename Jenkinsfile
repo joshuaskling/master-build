@@ -3,6 +3,7 @@ pipeline {
   environment {
     TEST = 'test environment variable'
     props = readJSON file: 'config.json'
+    url = "${props.deployment}"
   }
   parameters{
     string(name: 'stringInput', defaultValue: 'Hello')
@@ -14,7 +15,6 @@ pipeline {
     stage('getConfig') {
       steps {
         echo "=========================================================="
-        url = "${props.deployment}"
         echo "${url}"
         echo "=========================================================="
       }
