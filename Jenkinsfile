@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('getConfig') {
       steps {
-        echo "${props}.deployment"
+        echo "${props}.deployment.files.example-resource-file1.sourceUrl"
       }
     }
     stage('createViewBootstrapper') {
