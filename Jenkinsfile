@@ -3,7 +3,6 @@ pipeline {
   environment {
     TEST = 'test environment variable'
     props = readJSON file: 'config.json'
-    url = "${vm.ip}"
   }
   parameters{
     string(name: 'stringInput', defaultValue: 'Hello')
@@ -15,7 +14,7 @@ pipeline {
     stage('getConfig') {
       steps {
         echo "=========================================================="
-        echo "${url}"
+        echo "${props.vm.ip}"
         echo "=========================================================="
       }
     }
