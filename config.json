@@ -1,23 +1,42 @@
 {
-  "deployment": {
-    "files": {
-      "example-resource-file1": {
-        "sourceUrl": "https://storage.googleapis.com/[MY_BUCKET_ID]/example-application/example-resource-file1"
-      },
-      "images/example-resource-file2": {
-        "sourceUrl": "https://storage.googleapis.com/[MY_BUCKET_ID]/example-application/images/example-resource-file2"
-      },
-    }
-  },
-  "id": "v1",
-  "handlers": [
-    {
-      "urlRegex": "/.*",
-      "script": {
-        "scriptPath": "example-python-app.py"
+  "vm": {
+    "ip": "192.168.44.44",
+    "memory": "1024",
+    "synced_folders": [
+      {
+        "host_path": "data/",
+        "guest_path": "/var/www",
+        "type": "default"
       }
-    },
-  ],
-  "runtime": "python27",
-  "threadsafe": true,
+    ],
+    "forwarded_ports": []
+  },
+  "vdd": {
+    "sites": {
+      "drupal8": {
+        "account_name": "root",
+        "account_pass": "root",
+        "account_mail": "box@example.com",
+        "site_name": "Drupal 8",
+        "site_mail": "box@example.com",
+        "vhost": {
+          "document_root": "drupal8",
+          "url": "drupal8.dev",
+          "alias": ["www.drupal8.dev"]
+        }
+      },
+      "drupal7": {
+        "account_name": "root",
+        "account_pass": "root",
+        "account_mail": "box@example.com",
+        "site_name": "Drupal 7",
+        "site_mail": "box@example.com",
+        "vhost": {
+          "document_root": "drupal7",
+          "url": "drupal7.dev",
+          "alias": ["www.drupal7.dev"]
+        }
+      }
+    }
+  }
 }
