@@ -3,7 +3,7 @@ pipeline {
   environment {
     TEST = 'test environment variable'
     props = readJSON file: 'config.json'
-    url = "${props.deployment.files.example-resource-file1}"
+    url = "${vm.ip}"
   }
   parameters{
     string(name: 'stringInput', defaultValue: 'Hello')
